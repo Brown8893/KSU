@@ -1,0 +1,1 @@
+CREATE TABLE "yahoo_price" ("id" INTEGER PRIMARY KEY NOT NULL, "title" TEXT, "price" INTEGER);
