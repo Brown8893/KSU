@@ -1,0 +1,83 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: db1216
+-- ------------------------------------------------------
+-- Server version	5.7.17
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `equ`
+--
+
+DROP TABLE IF EXISTS `equ`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equ` (
+  `eno` varchar(10) COLLATE utf8_bin NOT NULL,
+  `ename` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `eclass` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `snid` varchar(45) COLLATE utf8_bin NOT NULL,
+  `date` date DEFAULT NULL,
+  `detail` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`eno`,`snid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equ`
+--
+
+LOCK TABLES `equ` WRITE;
+/*!40000 ALTER TABLE `equ` DISABLE KEYS */;
+INSERT INTO `equ` VALUES ('equ0001','NAS 網路儲存伺服器','資料庫儲存','DS1621xs','2019-10-20','無'),('equ0002','ViewSonic 4K電競螢幕','暫無分類','VX3211-4K','2020-02-22','無'),('equ0003','TP-Link 無線網路路由器','暫無分類','AX1800','2016-12-23','使用中'),('equ0004','金士頓512GB SSD 固態硬碟','暫無分類','SKC600','2020-09-04','使用中');
+/*!40000 ALTER TABLE `equ` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `staff`
+--
+
+DROP TABLE IF EXISTS `staff`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `staff` (
+  `sno` varchar(20) NOT NULL,
+  `sname` varchar(45) NOT NULL,
+  `sage` int(11) NOT NULL,
+  `sdate` date NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `address` tinytext NOT NULL,
+  PRIMARY KEY (`sno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `staff`
+--
+
+LOCK TABLES `staff` WRITE;
+/*!40000 ALTER TABLE `staff` DISABLE KEYS */;
+INSERT INTO `staff` VALUES ('A001','臭喨喨',22,'1999-09-14','0978945612','台南市北區'),('A002','林小英',47,'1973-08-07','0912345678','台北市信義區'),('B002','張小寶',39,'1981-04-29','0945781236','屏東縣恆春鄉'),('E003','臭唐唐',20,'2000-02-28','0987654321','彰化縣芬園鄉');
+/*!40000 ALTER TABLE `staff` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-01-03  2:54:12
