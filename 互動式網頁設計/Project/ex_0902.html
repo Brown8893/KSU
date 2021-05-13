@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ex_0902</title>
+</head>
+<script type="text/javascript">
+	function test(){
+		var t1 = document.getElementById('T1');
+		var d1 = document.getElementById('D1');
+		var b1 = document.getElementById('B1');
+		t1.value = "RUNNING";
+		t1.size = 30;
+		d1.innerHTML = "COOL";
+		b1.value = "OK";
+		//alert(d1.innerHTML);
+	}
+</script>
+<body>
+	<input type = "text" id="T1" value="ABC" size ="10">
+	<div id = "D1">BBB</div>
+	<input type ="button" id="B1" value="TEST" onClick="test()">
+</body>
+</html>

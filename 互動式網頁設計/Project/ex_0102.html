@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2020-03-06 作業 2</title>
+</head>
+	<style type="text/css">
+		INPUT {
+			font-size: 24px;
+		}
+		.intext {
+			background-color: #FF9;
+		}
+	</style>
+	<script type="application/javascript">
+		function c01() {
+			document.getElementById("pname").style.backgroundColor = "#FF0000";
+		}
+		function c02() {
+			document.getElementById("pname").value = "";
+		}
+	</script>
+
+<body>
+	<h3>4070E021 蘇宇祥</h3>
+	<hr />
+	姓名：<input type="text" id="pname" class="intext" value="" />
+	<input type="button" value="送出" onClick="c01()">
+	<input type="button" value="取消" onClick="c02()">
+</body>
+</html>

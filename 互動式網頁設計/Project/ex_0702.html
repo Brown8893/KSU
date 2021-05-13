@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TEST101</title>
+	</head>
+	
+	<script type="text/javascript">
+		function set01(){
+			var aa = document.getElementById('T1').value;
+			if (aa==='good'){
+				document.getElementById('A1').innerHTML = "YES";
+			} else {
+				document.getElementById('A1').innerHTML = "NO";
+			}
+		}
+	</script>
+
+	<body>
+		<p>帳號:<input type="text" id="T1" value="" size="20"></p>
+		<input type="button" id="but01" onClick="set01()" value="檢查">
+		<div id="A1"></div>
+	</body>
+</html>

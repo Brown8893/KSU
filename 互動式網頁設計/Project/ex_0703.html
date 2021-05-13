@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TESTQ03</title>
+	</head>
+	
+	<script type="text/javascript">
+	var a1R = 50;
+		function set01(){
+			document.getElementById('A1').style.top = '50px';
+			document.getElementById('A1').style.left = a1R+'px';
+			document.getElementById('A2').style.top = '100px';
+			document.getElementById('A2').style.left = '100px';
+		}
+		function set02(){
+			a1R = a1R + 10;
+			document.getElementById('A1').style.left = a1R+'px';
+		}
+		function set03(){
+			document.getElementById('A2').style.backgroundColor = 'red';
+		}
+	</script>
+	
+	<style type="text/css">
+		#A0 {
+    		width:200px;
+    		height:200px;
+    		border:solid #C36 thin;        
+		}
+		#A1 {
+			position: relative;
+    		border:solid #C36 thin;
+    		text-align:center;
+    		width:40px;
+    		height:20px;            
+		}
+		#A2 {
+			position: relative;
+    		border:solid #C36 thin;        
+    		text-align:center;
+    		width:40px;
+    		height:20px;            
+		}
+	</style>
+	
+	<body>
+		<input type="button" id="but01" onClick="set01()" value="B1">
+		<input type="button" id="but02" onClick="set02()" value="R">
+		<input type="button" id="but03" onClick="set03()" value="C">
+		<div id="A0">
+		<div id="A1">A1</div>
+		<div id="A2">A2</div>			
+		</div>
+	</body>
+</html>

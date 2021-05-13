@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>0424-1</title>
+</head>
+	
+<script type="text/javascript">
+	function test(){
+		var a1 = document.getElementById('T1').value;
+		var a2 = document.getElementById('T2').innerHTML;
+		//var b1 = parseInt(a1);
+		//var b2 = parseInt(a2);
+		
+		if (a1<=0){
+			document.getElementById('T3').innerHTML = "ERROR";
+		} else{
+			var a3 = a1 * a2;
+			document.getElementById('T3').innerHTML = a3;
+	    }							
+	}
+</script>
+	
+	
+<body>
+	購物清單<br>
+	購買數量:<input type="text" id="T1" value="0" size="5"><br>
+	單價：<div id="T2">10</div>
+	總價：<div id="T3">0</div><br>
+	<input type="button" value="計算" onClick="test()">
+</body>
+</html>

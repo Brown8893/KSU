@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4070E021 蘇宇祥</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		#A1{
+			width:30px;
+			height:30px;
+			position:absolute;
+			top:480px;
+			left:65px;
+		}
+		#A2{
+			width:30px;
+			height:30px;
+			position:absolute;
+			top:490px;
+			left:65px;
+		}
+		#D1{
+			width:150px;
+			height:150px;
+			float:left;
+		}
+		#ATM{
+			width:120px;
+			height:120px;
+			border:solid red thick;
+			border-radius:25px;
+			padding:5px 5px 5px 5px;
+			float:left;
+		}
+		#MAP{
+			width:600px;
+			height:400px;
+			clear:left;
+		}
+		.moving{
+			transition:3s;
+			left:300px !important;
+		}
+		.BLK{
+			width:30px;
+			height:30px;
+			border: solid yellow 6px;
+			position:absolute;
+			font-size:24px;
+			color:white;
+		}
+		#B0{top:490px;	left:65px;}
+		#B1{top:440px;	left:100px;}
+		#B2{top:447px;	left:185px;}
+		#B3{top:375px;	left:123px;}
+		#B4{top:340px;	left:50px;}
+		#B5{top:200px;	left:138px;}
+		#B6{top:299px;	left:200px;}
+		#B7{top:290px;	left:70px;}
+		#B8{top:237px;	left:90px;}
+		#B9{top:249px;	left:165px;}
+		#B10{top:295px;	left:130px;}
+		#B11{top:340px;	left:240px;}
+		#B12{top:277px;	left:258px;}
+		#B13{top:231px;	left:301px;}
+		#B14{top:231px;	left:352px;}
+		#B15{top:240px;	left:404px;}
+		#B16{top:247px;	left:455px;}
+		#B17{top:270px;	left:502px;}
+		#B18{top:317px;	left:475px;}
+		#B19{top:324px;	left:428px;}
+		#B20{top:460px;	left:290px;}
+		
+		#F1{
+			width:420px;
+			height:180px;
+			font-size:72px;
+			color:red;
+			background-color:lightgreen;
+			position:absolute;
+			top:300px;
+			left:100px;
+			z-index:150;
+			visibility:hidden;
+		}
+	</style>
+
+<body> 
+		4070E021 蘇宇祥<p>
+		<div id="D1" onClick="dice01()">
+		<img id="DM1" src="dice.gif" width="150" height="150">
+		</div>
+		<div id="ATM">
+		<img id="ATM1" src="act01.png" width="120" height="120">
+		</div>
+		<div id="MAP">
+		<img src="Map02.jpg" width="600" height="400">
+		</div>
+		<div id="A1">
+		<img src="act01.png" width="50" height="50">
+		</div>
+		<div id="A2">
+		<img src="act02.png" width="50" height="50">
+		</div>
+		<div id="F1">
+		<img id="FM1" src="act01.png" width="150" height="150">
+		是贏家!!
+		</div>
+		
+		<div id="B0" class="BLK">0</div>
+		<div id="B1" class="BLK">1</div>
+		<div id="B2" class="BLK">2</div>
+		<div id="B3" class="BLK">3</div>
+		<div id="B4" class="BLK">4</div>
+		<div id="B5" class="BLK">5</div>
+		<div id="B6" class="BLK">6</div>
+		<div id="B7" class="BLK">7</div>
+		<div id="B8" class="BLK">8</div>
+		<div id="B9" class="BLK">9</div>
+		<div id="B10" class="BLK">10</div>
+		<div id="B11" class="BLK">11</div>
+		<div id="B12" class="BLK">12</div>
+		<div id="B13" class="BLK">13</div>
+		<div id="B14" class="BLK">14</div>
+		<div id="B15" class="BLK">15</div>
+		<div id="B16" class="BLK">16</div>
+		<div id="B17" class="BLK">17</div>
+		<div id="B18" class="BLK">18</div>
+		<div id="B19" class="BLK">19</div>
+		<div id="B20" class="BLK">20</div>
+		
+</body>
+		<script type="text/javascript">
+		var AT = 1;
+		var ATS = [0, 0, 0];	//玩家起始位置
+		var cando = true;		//是否可以按下
+			function dice01(){
+				if (!cando) return;
+				cando = false;
+				var stp = Math.round(Math.random()*6);
+				if (stp==0) stp = 1;
+				var DM1 = document.getElementById('DM1');
+				DM1.src = "dice"+stp+".png";
+				test2(stp);
+				//setInterval(dice02,3000);
+			}
+			function dice02(){
+				var DM1 = document.getElementById('DM1');
+				DM1.src = "dice.gif";
+			}
+			function test2(obj1){
+				var AN = document.getElementById('A'+AT);
+				var osty = window.getComputedStyle(AN); 	//玩家位置
+				var posc = osty.getPropertyValue('left');	//玩家目前位置
+				var posc = posc.substr(0,posc.length-2);
+				//var pos1 = obj1*60+parseInt(posc);			//準備要移過去的位置
+				//alert(pos1);
+				
+				ATS[AT] = ATS[AT] + obj1;						//下一個要到的位置
+				if (ATS[AT]>20) ATS[AT] = 20;
+				var BN = document.getElementById('B'+ATS[AT]);	//取出top & left
+				var bsty = window.getComputedStyle(BN);
+				var posx = bsty.getPropertyValue('left');
+				var posy = bsty.getPropertyValue('top');
+				
+				
+				AN.style.transition = '3s';
+				//AN.style.left = pos1+'px';
+				AN.style.left = posx;	//改變玩家位置
+				AN.style.top = posy;	//改變玩家位置
+				AN.addEventListener("transitionend", test3);
+				
+			}
+			var test3_flag = 0;
+			function test3(){
+				test3_flag++;
+				if (test3_flag==2){
+					test3_flag = 0;
+					return;
+				}
+				if (ATS[AT]>=20){
+					var FM1 = document.getElementById('FM1');
+					FM1.src = "act0"+AT+".png";
+					var F1 = document.getElementById('F1');
+					F1.style.visibility = 'visible';					
+					ATS[0]=0;
+					ATS[1]=0;
+				} else if (ATS[AT]>=8 && ATS[AT]<=10){
+					test2(-2);
+				} else {
+					test4();
+				}
+			}
+			function test4(){
+				if (AT==1)
+					AT=2;
+				else
+					AT=1;
+				var ATM1 = document.getElementById('ATM1');
+				ATM1.src = "act0"+AT+".png";
+				dice02();
+				cando = true;	//可以按下
+			}
+		</script>
+</html>

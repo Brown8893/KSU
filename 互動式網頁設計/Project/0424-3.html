@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>0424-3</title>
+<style>
+	.box0{
+		width:200px;
+		height:200px;
+		border: solid blue thin;
+	}
+	#T1,#T2,#T3{
+		position: relative;
+		text-align:center;
+		width:40px;
+		height:20px;
+		border: solid blue thin;
+	}
+</style>
+</head>
+	
+<script type="text/javascript">
+	function move00(){
+		document.getElementById('T1').style.top = '10px';
+		document.getElementById('T1').style.left = '60px';
+		document.getElementById('T2').style.top = '70px';
+		document.getElementById('T2').style.left = '30px';
+		document.getElementById('T3').style.top = '55px';
+		document.getElementById('T3').style.left = '90px';		
+	}
+	function move01(){
+		document.getElementById('T1').style = '0px';
+		document.getElementById('T2').style = '0px';
+		document.getElementById('T3').style = '0px';
+	}
+</script>
+	
+	
+<body>
+	<button id="b1" onclick="move00()">Change1</button>
+	<button id="b2" onclick="move01()">Change2</button>
+	<div class="box0">
+	<div id="T1" class="box1">T1</div>
+	<div id="T2" class="box1">T2</div>
+	<div id="T3" class="box1">T3</div>
+	</div>
+</body>
+</html>

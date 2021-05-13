@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>TESTQ01</title>
+    </head>
+
+    <script type="text/javascript">
+        function set01(){
+            document.getElementById('T1').value = "MARY";
+        }
+        function set02(){
+            document.getElementById('T1').value = "***";
+        }
+    </script>
+    
+    <body>
+        <p>帳號:<input type="text" id="T1" value="" size="20"></p>
+        <input type="button" id="but01" onClick="set01()" value="自動填寫">
+        <input type="button" id="but02" onClick="set02()" value="清除">          
+    </body>
+</html>

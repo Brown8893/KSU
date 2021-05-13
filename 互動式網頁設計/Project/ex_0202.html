@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>4070E021 蘇宇祥</title>
+</head>
+
+	<script type="application/javascript">
+		function test() {
+			alert("按下測試");
+		}
+		function showfull() {
+			document.write("HELLO WORLD!");
+		}
+		function showText() {
+			document.getElementById("T01").innerHTML = "Hello World!";
+		}
+		function clean() {
+			document.getElementById("T01").innerHTML = "";
+		}
+		function showRED() {
+			document.getElementById("T01").style.color = "red";
+		}
+		function showBlue() {
+			document.getElementById("T01").style.color = "blue";
+		}
+		function showGreen() {
+			document.getElementById("T01").style.color = "green";
+		}
+	</script>
+	
+<body>
+	<button onClick="test()">測試</button>
+	<button onClick="showfull()">全部替換HELLO WORLD!</button>
+	<button onClick="showText()">顯示</button>
+	<button onClick="showRED()">紅</button>
+	<button onClick="showBlue()">藍</button>
+	<button onClick="showGreen()">綠</button>
+	<button onClick="clean()">消失</button>
+	<div id="T01"></div>
+</body>
+</html>

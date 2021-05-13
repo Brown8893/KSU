@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4070E021 蘇宇祥</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		#A1{
+			width:30px;
+			height:30px;
+			//background-color:blue;
+			position:absolute;
+			left:8px;
+			top:60px;
+		}
+		#A2{
+			width:30px;
+			height:30px;
+			//background-color:blue;
+			position:absolute;
+			left:8px;
+			top:60px;
+		}
+		#D1{
+			width:150px;
+			height:150px;
+			//background-color:red;
+			position:absolute;
+			left:200px;
+			top:150px;
+		}
+		#ATM{
+			width:50px;
+			height:50px;
+			position:absolute;
+			border:solid red thick;
+			border-radius:25px;
+			padding:5px 5px 5px 5px;
+			left:90px;
+			top:120px;
+		}
+		.moving{
+			transition:3s;
+			left:300px !important;
+		}
+	</style>
+
+<body> 
+		4070E021 蘇宇祥<p>
+		<input type="button" value="Move" onClick="test()">
+		<input type="button" value="Move2" onClick="test2(2)"><br>
+		<img src="Map01.jpg" width="400" height="300">
+		<div id="A1">
+		<img src="act01.png" width="50" height="50">
+		</div>
+		<div id="A2">
+		<img src="act02.png" width="50" height="50">
+		</div>
+		<div id="D1" onClick="dice01()">
+		<img id="DM1" src="dice.gif" width="150" height="150">
+		</div>
+		<div id="ATM">
+		<img id="ATM1" src="act01.png" width="50" height="50">
+		</div>
+</body>
+		<script type="text/javascript">
+		var AT = 1;
+			function dice01(){
+				var stp = Math.round(Math.random()*6);
+				if (stp==0) stp = 1;
+				var DM1 = document.getElementById('DM1');
+				DM1.src = "dice"+stp+".png";
+				test2(stp);
+				setInterval(dice02,3000);
+			}
+			function dice02(){
+				var DM1 = document.getElementById('DM1');
+				DM1.src = "dice.gif";
+			}
+			function test2(obj1){
+				var AN = document.getElementById('A'+AT);
+				var osty = window.getComputedStyle(AN);
+				var posc = osty.getPropertyValue('left');
+				var posc = posc.substr(0,posc.length-2);
+				var pos1 = obj1*50+parseInt(posc);
+				//alert(pos1);
+				AN.style.transition = '3s';
+				AN.style.left = pos1+'px';
+				if (AT==1)
+					AT=2;
+				else
+					AT=1;
+				var ATM1 = document.getElementById('ATM1');
+				ATM1.src = "act0"+AT+".png";
+			}
+		</script>
+</html>

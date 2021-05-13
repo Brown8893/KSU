@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4070E021 蘇宇祥</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		#A01{
+			width:200px;
+			height:300px;
+			border:solid blue thin;
+		}
+		.box{
+			width:70px;
+			height:100px;
+			border:solid red thin;
+			position: absolute;
+			backface-visibility: hidden; 
+			transform: translateX(0);
+		}
+		.box.out{
+			transform: rotateY(-180deg) scale(.9);
+			animation-name: flipouttoleft;
+			animation-duration: 175ms;
+		}
+		.box.in{
+			transform: rotateY(0deg) scale(.9);
+			animation-name: flipouttoright;
+			animation-duration: 225ms;
+		}
+		@keyframes flipouttoleft{
+			from {transform: rotateY(0);}
+			to {transform: rotateY(-90deg) scale(.9);}
+		}
+		@keyframes flipouttoright{
+			from {transform: rotateY(90deg) scale(.9);}
+			to {transform: rotateY(0);}
+		}
+	</style>
+
+<body> 
+		<input type="button" onclick="FUNC2()" value="ROT">
+		<div id="A01" onclick="FUNC1()">
+		TEST
+		<div id="A11" class="box"><img id="img01" width="70px" height="100px" src="Dola.png"></div>
+		<div id="A12" class="box out">test2</div>
+		</div>		
+</body>
+	<script type="text/javascript">
+		var eleBack = $('#A11');
+		var eleBackP = $('#A12');
+		function FUNC1(){
+			eleBack.addClass("out").removeClass("in");
+			eleBackP.addClass("in").removeClass("out");
+			return false;
+		}
+		function FUNC2(){
+			eleBack.addClass("in").removeClass("out");
+			return false;
+		}
+	</script>
+</html>

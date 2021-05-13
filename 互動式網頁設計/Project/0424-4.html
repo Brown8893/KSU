@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>0424-4</title>
+<style>
+	.box0{
+		width:260px;
+		height:200px;
+		border: dashed red thin;
+	}
+	#T1,#T2,#T3{
+		position: relative;
+		text-align:center;
+		width:40px;
+		height:20px;
+		border: solid red thin;
+	}
+</style>
+</head>
+	
+<script type="text/javascript">
+	var a1T = 10;
+	var a2L = 50;
+	function move00(){
+		document.getElementById('T1').style.top = a1T+"px";
+		document.getElementById('T1').style.left = '10px';
+		document.getElementById('T2').style.top = '50px';
+		document.getElementById('T2').style.left = a2L+"px";	
+	}
+	function move01(){
+		a1T = a1T + 10;
+		document.getElementById('T1').style.top = a1T+"px";		
+	}
+	function move02(){
+		a2L = a2L + 15;
+		document.getElementById('T2').style.left = a2L+"px";		
+	}
+	function move03(){
+		document.getElementById('T1').style = '0px';
+		document.getElementById('T2').style = '0px';		
+	}
+</script>
+	
+	
+<body>
+	<button id="b1" onclick="move00()">Set Pos</button>
+	<button id="b2" onclick="move01()">T1 Down</button>
+	<button id="b3" onclick="move02()">T2 Right</button>
+	<button id="b4" onclick="move03()">STOP</button>
+	<div class="box0">
+	<div id="T1" class="box1">T1</div>
+	<div id="T2" class="box1">T2</div>
+	</div>
+</body>
+</html>

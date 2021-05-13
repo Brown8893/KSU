@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>2020-06-25 ex_1501</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<script type="application/javascript">
+	var ctx = null;
+	var ship = new Array(3);
+	var img_back = new Image();  //background(地球星空)
+	img_back.src = 'back.jpg'
+	var img_ship = new Image();  //image(太空船)
+	img_ship.src = 'ship.png';
+		$( document ).ready(function(){
+ 			canvas = document.getElementById("t_canvas");
+			ctx = canvas.getContext("2d");
+			//myVar = setInterval(function(){moveR()},10);			
+			for(var i=0; i<3; i++)
+				ship[i] = new SHIP();
+				draw_back();
+				draw_init();
+		});
+		//遊戲初始動作
+		function draw_init(){
+			//太空船
+			for(var i=0; i<3; i++){
+				ship[i].ship_x = 150+i*20;
+				ship[i].ship_y = 10+i*10;
+				//ship[i].ship_inc_x = 4+i;
+				//ship[i].ship_inc_y = 2+i;
+				ship[i].draw_ship(ctx,img_ship);
+			}
+		}
+		function draw_back(){
+			ctx.drawImage(img_back,0,0,600,400);
+		}
+		function SHIP(){	//太空船
+			this.ship_x = 0;	//目前位置
+			this.ship_y = 0;
+			this.draw_ship = function(ctx1,img_ship1){
+						ctx1.drawImage(img_ship1,this.ship_x,this.ship_y,60,60);
+						//alert("ok");
+			};
+			this.move = function(){
+				this.ship_x = this.ship_x + 50;
+				this.ship_y = this.ship_y + 20;
+			};
+			//檢查 tX, tY是否在太空船內
+			this.isIn = function(tX,tY){
+				var isHit = false;
+				if (tX>this.ship_x && this.ship_x + 60 && tY>this.ship_y && tY<this.ship_y + 60)
+					isHit = true;
+					return isHit;
+			}
+		}
+	</script>
+<body>
+	407E021 蘇宇祥
+	<canvas id ="t_canvas" width="600" height="400">
+	</canvas>
+</body>
+
+</html>

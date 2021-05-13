@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ex_0911</title>
+</head>
+	<script type="text/javascript">
+		function test(){
+			var d1 = document.getElementById('D1');		
+			var s1 = document.getElementsByName('S1');
+			if(s1[0].checked)
+				d1.innerHTML = "男";
+			else
+				d1.innerHTML = "女";
+		}
+	</script>
+<body>
+	<form name="DATA">
+		男<input type = "radio" id="T1" name="S1" value="1">
+		女<input type = "radio" id="T2" name="S1" value="2">
+		<div id = "D1">ANS</div>
+		<input type ="button" value="TEST" onClick="test()">
+	</form>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4070E021 蘇宇祥</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		#A01{
+			width:140px;
+			height:200px;
+			border:solid blue thin;
+		}
+		.pcard{
+			float:left;
+			margin-left:10px;
+		}
+		.box{
+			width:70px;
+			height:100px;
+			position: absolute;
+			backface-visibility: hidden; 
+			transform: translateX(0);
+		}
+		.box.out{
+			transform: rotateY(-180deg) scale(1.0);
+			animation-name: flipouttoleft;
+			animation-duration: 175ms;
+		}
+		.box.in{
+			transform: rotateY(0deg) scale(1.0);
+			animation-name: flipouttoright;
+			animation-duration: 225ms;
+		}
+		@keyframes flipouttoleft{
+			from {transform: rotateY(0);}
+			to {transform: rotateY(-90deg) scale(1.0);}
+		}
+		@keyframes flipouttoright{
+			from {transform: rotateY(90deg) scale(1.0);}
+			to {transform: rotateY(0);}
+		}
+	</style>
+
+<body> 
+		<input type="button" onclick="FUNC10()" value="ROT"><br><br>
+		<div id="A01" class="pcard" onclick="FUNC1()">
+		<div id="A11" class="box">
+		<img id="img01" width="140px" height="200px" src="Dola.png"></div>
+		<div id="A12" class="box out">
+		<img id="img01" width="140px" height="200px" src="a02.png"></div>
+		</div>
+		<div id="A11" class="pcard" onclick="FUNC2()">
+		<div id="A21" class="box">
+		<img id="img01" width="140px" height="200px" src="Dola.png"></div>
+		<div id="A22" class="box out">
+		<img id="img01" width="140px" height="200px" src="a04.png"></div>
+		</div>		
+</body>
+	<script type="text/javascript">
+		var eleFA = $('#A11');	//前面
+		var eleBA = $('#A12');	//背面
+		function FUNC1(){
+			eleFA.addClass("out").removeClass("in");
+			eleBA.addClass("in").removeClass("out");
+			return false;
+		}
+		function FUNC10(){
+			eleFA.addClass("in").removeClass("out");
+			eleBA.addClass("out").removeClass("in");
+			return false;
+		}
+		var eleFB = $('#A21');	//前面
+		var eleBB = $('#A22');	//背面
+		function FUNC2(){
+			eleFB.addClass("out").removeClass("in");
+			eleBB.addClass("in").removeClass("out");
+			return false;
+		}
+	</script>
+</html>

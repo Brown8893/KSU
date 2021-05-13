@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>0424-2</title>
+</head>
+	
+<script type="text/javascript">
+	function test(){
+		var a1 = document.getElementById('T1').value;
+		var a2 = document.getElementById('T2').value;
+		var a4 = a1 * a2;
+		
+		if (a4 < 500){
+			document.getElementById('T3').value = 0;
+			document.getElementById('T4').value = a4;
+		} else{
+			document.getElementById('T3').value = a4 * 0.3;
+			document.getElementById('T4').value = a4 * 0.7;
+	    }							
+	}
+</script>
+	
+	
+<body>
+	購物清單<br>
+	單價：<input type="text" id="T1" value="100" size="5"><br>
+	數量：<input type="text" id="T2" value="0" size="5"><br>
+	折扣：<input type="text" id="T3" value="0" size="5"><br>
+	總價：<input type="text" id="T4" value="0" size="5"><br>
+	<input type="button" value="計算" onClick="test()">
+</body>
+</html>

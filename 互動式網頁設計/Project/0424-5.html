@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>4070E021 蘇宇祥</title>
+</head>
+	
+	<style type="text/css">
+		.c01 {
+			animation: blText1 4s infinite;
+		}
+		@keyframes blText1{
+			0%{color: #000;}
+			10%{color: transparent;}
+			100%{color: green;}
+		}
+		.c02 {
+			animation: blText2 1s infinite;
+		}
+		@keyframes blText2{
+			0%{color: #000;}
+			10%{color: transparent;}
+			100%{color: orange;}
+		}
+	</style>
+
+	<script type="application/javascript">
+		function showRED() {
+			document.getElementById("T01").className = "c01";
+		}
+		function chgCSS() {
+			document.getElementById("T01").className = "c02";
+		}
+	</script>
+	
+<body>
+	<button onClick="showRED()">長</button>
+	<button onClick="chgCSS()">短</button>
+	<h1 id="T01">Hello 4070E021! 崑山科技大學資訊工程系</h1>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>4070E021 蘇宇祥</title>
+</head>
+	
+	<style type="text/css">
+		.c01 {
+			font-size: 36px;
+			font-family: "標楷體";
+			color: #F00;
+		}
+		.c02 {
+			animation: blText 1.2s infinite;
+		}
+		@keyframes blText{
+			0%{color: #000;}
+			30%{color: transparent;}
+			55%{color: #00F;}
+			60%{color: transparent;}
+			100%{color: #000;}
+		}
+	</style>
+
+	<script type="application/javascript">
+		function showRED() {
+			document.getElementById("T01").style.color = "red";
+		}
+		function chgCSS() {
+			document.getElementById("T01").className = "c01";
+		}
+	</script>
+	
+<body>
+	<button onClick="showRED()">紅</button>
+	<button onClick="chgCSS()">格式</button>
+	<div id="T01" class="c02">Hello KSU! 你好崑山科技大學</div>
+</body>
+</html>

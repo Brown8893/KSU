@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>4070E021 蘇宇祥</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		.pcard{
+			width:140px;
+			height:200px;
+			border:solid blue thin;
+			float:left;
+			margin-left:10px;
+		}
+		.box{
+			width:70px;
+			height:100px;
+			position: absolute;
+			backface-visibility: hidden; 
+			transform: translateX(0);
+		}
+		.box.out{
+			transform: rotateY(-180deg) scale(1.0);
+			animation-name: flipouttoleft;
+			animation-duration: 175ms;
+		}
+		.box.in{
+			transform: rotateY(0deg) scale(1.0);
+			animation-name: flipouttoright;
+			animation-duration: 225ms;
+		}
+		@keyframes flipouttoleft{
+			from {transform: rotateY(0);}
+			to {transform: rotateY(-90deg) scale(1.0);}
+		}
+		@keyframes flipouttoright{
+			from {transform: rotateY(90deg) scale(1.0);}
+			to {transform: rotateY(0);}
+		}
+		#G00{
+			width:200px;
+			height:200px;
+			position: absolute;
+			font-size:50px;
+			left:150px;
+			top:60px;
+			visibility:hidden;
+		}
+	</style>
+
+<body> 
+		<input type="button" onclick="FUNC10()" value="ROT"><br><br>
+		<div id="A01" class="pcard" onclick="FUNC1('11','12')">
+		<div id="A11" class="box">
+		<img id="M11" width="140px" height="200px" src="Dola.png"></div>
+		<div id="A12" class="box out">
+		<img id="M12" width="140px" height="200px" src="a02.png"></div>
+		</div>
+		<div id="A11" class="pcard" onclick="FUNC1('21','22')">
+		<div id="A21" class="box">
+		<img id="M21" width="140px" height="200px" src="Dola.png"></div>
+		<div id="A22" class="box out">
+		<img id="M22" width="140px" height="200px" src="a04.png"></div>
+		</div>
+		
+		<div class="pcard">
+			猜猜看<img id="M00" width="120px" height="180px" src="a04.png">
+		</div>
+		
+		<div id="G00">
+			<img id="G01" width="160px" height="180px" src="g01.png">
+		</div>
+</body>
+	<script type="text/javascript">
+		function FUNC1(obj1,obj2){
+			var eleF = $('#A'+obj1);	//前面
+			var eleB = $('#A'+obj2);	//背面
+			eleF.addClass("out").removeClass("in");
+			eleB.addClass("in").removeClass("out");
+			var imga = document.getElementById('M'+obj2);
+			var imgs = document.getElementById('M00');
+			var g00 = document.getElementById('G00');
+			var g01 = document.getElementById('G01');
+			if (imga.src===imgs.src){
+				g01.src = "g01.gif";
+			} else {
+				g01.src = "g02.gif";
+			}
+			g00.style.visibility = 'visible';
+			return false;
+		}
+		function FUNC10(){
+			var eleF = $('#A11');	//前面
+			var eleB = $('#A12');	//背面
+			eleF.addClass("in").removeClass("out");
+			eleB.addClass("out").removeClass("in");
+			return false;
+		}
+	</script>
+</html>
