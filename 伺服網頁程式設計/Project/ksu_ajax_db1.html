@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	function showUser(str) {
+		if (str == "") {
+		document.getElementById("txtHint").innerHTML = "";
+		return;
+	}
+	var xmlhttp=new XMLHttpRequest();
+	xmlhttp.onreadystatechange=function() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("txtHint").innerHTML=this.responseText;
+		}
+	}
+	xmlhttp.open("GET","ksu_ajax_db1.php?std_id="+str,true);
+	xmlhttp.send();
+}
+</script>
+</head>
+<body>
+
+	<form>
+		<select name="users" onchange="showUser(this.value)">
+			<option value="">Select a student ID:</option>
+			<option value="IE01">IE01</option>
+			<option value="IE02">IE02</option>
+			<option value="IE03">IE03</option>
+			<option value="IM01">IM01</option>
+			<option value="E017">E017</option>
+			<option value="E020">E020</option>
+			<option value="E021">E021</option>
+			<option value="E022">E022</option>
+		</select>
+	</form>
+<br>
+<div id="txtHint"><h1><b>Student information will be listed here...</b></h1></div>
+
+</body>
+</html>

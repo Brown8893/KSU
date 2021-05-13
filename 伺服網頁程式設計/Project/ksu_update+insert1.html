@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh_tw">
+<head>
+  <meta charset="utf-8">
+  <title>Hello</title>
+</head>
+    Update Option: 若無法更新ksu_std_table, 則加入此學號與新姓名.<br/>
+	而ksu_std_table其他欄位值,先不加入<br/><br/>
+<body>
+  <!--不對字符編碼 --> 
+
+  <form enctype="multipart/form-data" method="post" action="ksu_update+insert1.php">
+    學生的學號:<input type="text" name="number" size="10"><br/><br/>
+    學生的新姓名:<input type="text" name="name" size="10"><br/><br/>
+	<input type="submit" name="sub" value="修改"/>
+  </form>
+</body>
+</html>
