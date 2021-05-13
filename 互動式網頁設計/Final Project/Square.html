@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+      border:5px solid #d3d3d3;
+      background-image:url("bg.jpg");
+}
+	#reset{
+			font-size: 40px;
+			text-align: center;
+			width: 100px;
+			height: 50px;
+			border: orange solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+	#MAIN{
+			font-size: 40px;
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			border: green solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+    #putong{
+			font-size: 40px;
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			border: blue dashed;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+    #diyu{
+			font-size: 40px;
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			border: blue dashed;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+    #mousemove{
+			font-size: 40px;
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			border: blue dashed;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+
+</style>
+</head>
+<body onload="startGame()" onkeydown="keyFunction()" onkeyup="NOkeyFunction()">
+      
+
+<script>
+
+var myGamePiece;
+var myObstacles = [];
+var myScore;
+var hard = 0; 
+var speedmode = 20;
+function startGame() {
+      myGamePiece = new component(50, 30,"car.png", 10, 120,"image"); //小方塊的規格
+      myScore = new component("50px", "fantasy	", "yellow", 600, 40, "text");//分數的尺吋
+      myGameArea.start(); 
+}
+function reset(){
+	window.location.href='Square.html';
+}
+function main(){
+	window.location.href='Main.html';
+}
+var myGameArea = {
+      canvas : document.createElement("canvas"),//創建canvas
+      start : function() {
+              this.canvas.width = 1300; 
+              this.canvas.height = 300;
+              this.context = this.canvas.getContext("2d"); //繪製2D類型
+             
+         this.canvas.style.cursor = "none";//隱藏滑鼠游標
+          document.body.insertBefore(this.canvas, document.body.childNodes[0]);//insert項目
+              this.frameNo = 0; //框架
+              this.interval = setInterval(updateGameArea, speedmode);//setInterval 指定一段程式碼或函式定時在多少毫秒(ms)後執行，並回傳此定時器的編號。
+           
+              },      clear : function() {
+              this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);//clearRect() 方法清空指定矩形内的指定像素
+      },
+      stop : function() { //清除20毫秒的間隔。
+              clearInterval(this.interval);
+      }
+}
+
+function component(width, height, color, x, y, type) {
+      this.type = type;
+    this.type = type;
+     if (type == "image") {  //定義image
+    this.image = new Image();
+    this.image.src = color;
+  }
+      this.width = width;
+      this.height = height;
+      this.speedX = 0;//若調整一開始會自動以X座標移動
+      this.speedY = 0;//若調整一開始會自動以Y座標移動      
+      this.x = x;
+      this.y = y;     
+ 
+    
+      this.update = function() {
+              ctx = myGameArea.context;
+          if (this.type == "text") { //填充yellow
+      ctx.font = this.width + " " + this.height;
+      ctx.fillStyle = color;
+      ctx.fillText(this.text, this.x, this.y);
+    } else {
+      ctx.fillStyle = color;
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+              if (this.type == "image") {//添加image
+            ctx.drawImage(this.image,
+        this.x,
+        this.y,
+        this.width, this.height)
+              } else {
+                ctx.fillStyle = color;//設定填滿圖形時用的顏色
+      ctx.fillRect(this.x, this.y, this.width, this.height);//繪製“已填色”的矩形
+              }
+      }
+      this.newPos = function() {
+              this.x += this.speedX;
+              this.y += this.speedY;               
+      }
+      this.crashWith = function(otherobj) {//障礙物
+              var myleft = this.x;
+              var myright = this.x + (this.width);
+              var mytop = this.y;
+              var mybottom = this.y + (this.height);
+              var otherleft = otherobj.x;
+              var otherright = otherobj.x + (otherobj.width);
+              var othertop = otherobj.y;
+              var otherbottom = otherobj.y + (otherobj.height);
+              var crash = true;
+              if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+                      crash = false;
+              }
+              return crash;
+      }
+}
+
+function updateGameArea() {
+      var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+      for (i = 0; i < myObstacles.length; i += 1) {
+              if (myGamePiece.crashWith(myObstacles[i])) {
+                      myGameArea.stop();//控制Stop()
+                      return;
+              } 
+      }
+      myGameArea.clear();
+    if (myGameArea.x && myGameArea.y) {
+    myGamePiece.x = myGameArea.x;
+    myGamePiece.y = myGameArea.y;
+  }
+      myGameArea.frameNo += 1;	//變更障礙物的密集度
+      if (myGameArea.frameNo == 1 || everyinterval(150)) {
+              x = myGameArea.canvas.width;
+              minHeight = 70;
+              maxHeight = 180;
+              height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+              minGap = 40;
+              maxGap = 200;
+              gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+              myObstacles.push(new component(20, height, "orange", x, 0));            //上面藍色障礙物寬度.顏色.與border的距離
+              myObstacles.push(new component(20, x - height - gap, "orange", x, height + gap)); //
+      }
+      for (i = 0; i < myObstacles.length; i += 1) {
+              myObstacles[i].speedX = -1;//橘條可調整模式速度
+              myObstacles[i].newPos();
+              myObstacles[i].update();
+      }
+      myScore.text="得分: " + myGameArea.frameNo;
+      myScore.update();
+      myGamePiece.newPos();       
+      myGamePiece.update();
+}
+
+function everyinterval(n) {//新增多個障礙物
+      if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+      return false;
+}
+function moveup() {
+      myGamePiece.speedY = -3;	//普通模式速度
+}
+
+function movedown() {
+      myGamePiece.speedY = 3; 
+}
+
+function moveleft() {
+      myGamePiece.speedX = -3; 
+}
+
+function moveright() {
+      myGamePiece.speedX = 3; 
+}
+
+function clearmove() { //讓XY軸有煞車功能,不會自動前進
+      myGamePiece.speedX = 0; 
+      myGamePiece.speedY = 0; 
+}
+    
+ /* function clearmove() {
+      myGamePiece.speedX = 0; 
+      myGamePiece.speedY = 0; 
+}  */
+    
+    
+    
+    
+function keyFunction() { //使用鍵盤控制上下左右
+       ek=event.keyCode;
+if (event.which==37) {
+		moveleft();
+    
+		return false;
+	} 
+    
+else if (event.keyCode==38) {
+		myGamePiece.speedY = -3; 
+ 
+        return false;
+	} 
+else if (event.keyCode==39) {
+		moveright();
+   
+        return false;
+	}
+else if (event.keyCode==40) {
+		movedown();
+    
+        return false;
+	}
+else if (event.type != "click") {
+		clearmove();
+    
+        return false;
+	}
+else{
+    clearmove();
+    return false;
+    }
+   }
+function NOkeyFunction() { 
+    ek=event.keyCode;
+    if(hard==0)
+        {
+           clearmove(); 
+        }
+    else{}
+    return false;
+    
+
+   }
+
+function PUTONG() {
+    clearmove();
+hard = 0;
+    speedmode = 20;
+    
+}
+
+function DIYU() {
+    clearmove();
+hard = 1;
+    speedmode = 30;
+}
+
+    //onmousedown 滑鼠按下
+    //onmouseup   滑鼠放開
+   
+    
+function e(){  //滑鼠游標移動
+    window.addEventListener('mousemove', function (e) {
+      myGameArea.x = e.pageX;
+      myGameArea.y = e.pageY;
+    })
+}
+
+ 
+</script>
+<div id="reset" onClick="reset()">重置</div>
+<div id="MAIN" onClick="main()">返回主畫面</div>
+<div style="width:100px;">
+  <div id="putong" onmousedown="PUTONG()" >普通模式</div>
+  <div id="diyu" onmousedown="DIYU()" >地獄模式</div>
+	<div id="mousemove" onmousedown="e()" >急急棒模式</div>
+</div>
+
+</body>
+</html>

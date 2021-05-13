@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登入帳號</title>
+</head>
+	<title>帳戶註冊/登入</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		
+	<style type="text/css">
+		*{
+			text-align: center;
+		}
+		#header-wrapper{
+				font-size: 20px;
+		}
+		INPUT {
+			font-size: 24px;
+			text-align: left;
+		}
+		.intext {
+			background-color: lightyellow;
+		}
+		#myBtn {
+  			display: none;
+  			position: fixed;
+  			bottom: 20px;
+  			right: 30px;
+  			z-index: 99;
+  			font-size: 18px;
+  			border: none;
+  			outline: none;
+  			background-color: red;
+  			color: white;
+  			cursor: pointer;
+  			padding: 15px;
+  			border-radius: 4px;
+		}
+		#myBtn:hover {
+  			background-color: #555;
+		}
+	</style>
+	
+
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header-wrapper">
+					<div id="header" class="container">
+                      
+						<!-- Logo -->
+						<h1 id="logo"><a href="account.html">登入/註冊帳戶</a></h1>
+						 <p><marquee height="80" scrollamount="8">歡迎來到SteKai線上遊戲公司，請先申辦帳號密碼方可進入遊戲，謝謝您! 有問題請洽詢公司專線 (06)2715175</marquee></p>
+                          
+						<p>歡迎申辦SteKai線上遊戲公司帳戶，請依照以下步驟申請帳號密碼</p><hr /><br>
+						<form enctype="multipart/form-data"  method="post">
+						帳號：<input type="email" name="pname" id="pname" class="intext" value="" /></br></br>
+						密碼：<input type="password" name="passwd" id="passwd" class="intext" value="" /></br></br>
+						<input type="button" value="申請" onClick="c01()">
+						<input type="button" value="取消" onClick="c02()">
+						<div id="T1"></div><br>
+						</form><hr />
+						<!-- Nav -->
+                        
+								<nav id="nav">
+								<ul>
+                                    <li style="color:darkorange;font-size:16px;">SteKai線上遊戲公司</li>
+                                    <li><a class="icon fa-home" href="Main.html"><span>首頁</span></a></li>
+									
+                                    <li><a href="account.html" class="icon fa-bar-chart-o">
+										<span>登入/註冊帳戶</span></a>
+									
+									<li><a href="Main.html" class="icon fa-bar-chart-o">
+										<span>遊戲專案</span></a>
+									<ul>
+										<li><a href="Monopoly.html">大富翁冒險</a></li>
+                                        <li><a href="Square.html">方塊跳躍</a></li>
+                                        <li><a href="Poker.html">猜猜牌</a></li>
+									</ul>
+                                        
+									<li><a href="team.html" class="icon fa-bar-chart-o">
+										<span>團隊介紹</span></a>
+								</ul>
+							</nav>
+					</div>
+				</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+	<script type="application/javascript">
+		function c01() {
+			var a1 = document.getElementById('pname').value;
+			var a2 = document.getElementById('passwd').value;
+			//Get the button
+			var mybutton = document.getElementById("myBtn");
+			// When the user scrolls down 20px from the top of the document, show the button
+			window.onscroll = function() {scrollFunction()};
+			if (a1==="" || a1.length < 4){
+				alert("帳號不能為空或小於4個字元! 請記得輸入");
+				document.getElementById('T1').innerHTML = "帳號不能為空或小於4個字元";
+			} else if (a2===""){
+				alert("密碼不能為空! 請記得輸入");
+				document.getElementById('T1').innerHTML = "密碼不能為空";
+			} else {
+				alert("帳號："+a1+"註冊成功");
+				document.getElementById('T1').innerHTML = "帳號:	"+a1+"	密碼:	"+a2;
+				window.location.href='Main.html';
+			}
+		}
+		function c02() {
+			document.getElementById("pname").value = "";
+			document.getElementById("passwd").value = "";
+			document.getElementById('T1').innerHTML = "";
+		}
+		function topFunction() {
+  			document.body.scrollTop = 0;
+  			document.documentElement.scrollTop = 0;
+		}
+		function scrollFunction() {
+  			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    			mybutton.style.display = "block";
+  			} else {
+    		mybutton.style.display = "none";
+  			}
+		}
+	</script>
+
+</body>
+</html>

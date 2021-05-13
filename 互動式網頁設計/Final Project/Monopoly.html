@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Monopoly</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<script src="sweetalert2.all.min.js"></script>
+	<style type="text/css">
+	    * {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            font-size: 16px;	
+        }
+		.navbar{
+            background-color:black;            
+        }
+        .navbar a:hover{
+            background-color:#eee;
+            color:brown;
+        }
+        .navbar a{
+            float: left;
+            color: white;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .subnav-btn{
+            outline: none;
+            border: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: black;
+            margin: 0;
+        }
+        .subnav-content{
+            display: none;
+            position: absolute;
+            background-color: lightgreen;
+            color: black;
+        }
+        .subnav:hover .subnav-content{
+            display: block;
+        }
+        .subnav-content a:hover{
+            background-color: #eee;
+            color: blue;
+        }
+		.subnav-btn:hover{
+            background-color: #eee;
+            color: black;
+        }
+		#A1{
+			width:30px;
+			height:30px;
+			position:absolute;
+			top:310px;
+			left:650px;
+		}
+		#A2{
+			width:30px;
+			height:30px;
+			position:absolute;
+			top:310px;
+			left:650px;
+		}
+		#D1{
+			width:150px;
+			height:150px;
+			float:left;
+		}
+		#ATM{
+			width:120px;
+			height:120px;
+			border:solid red thick;
+			border-radius:25px;
+			padding:5px 5px 5px 5px;
+			float:left;
+		}
+		#MAP{
+			width:100%;
+			clear:left;
+			float: inherit;			
+		}
+		#run{
+			font-size: 40px;
+			text-align: center;
+			width: 400px;
+			height: 50px;
+			border: brown dashed;
+			margin:5px 5px 5px 15px;
+			float: left;
+		}
+		#reset{
+			font-size: 40px;
+			text-align: center;
+			width: 100px;
+			height: 50px;
+			border: orange solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+		#P1, #P2{
+			font-size: 40px;
+			text-align: center;
+			width: 400px;
+			height: 50px;
+			border: red solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+		}
+		#O1, #O2{
+			font-size: 40px;
+			text-align: center;
+			width: 400px;
+			height: 50px;
+			border: purple solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+		}
+		#MAIN{
+			font-size: 40px;
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			border: green solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+		.moving{
+			transition:3s;
+			left:300px !important;
+		}
+		.BLK{
+			width:30px;
+			height:30px;
+			border: solid yellow 6px;
+			position:absolute;
+			font-size:24px;
+			color:white;
+		}
+		#B0{top:310px;	left:650px;}
+		#B1{top:320px;	left:590px;}
+		#B2{top:350px;	left:820px;}
+		#B3{top:370px;	left:550px;}
+		#B4{top:350px;	left:460px;}
+		#B5{top:270px;	left:550px;}
+		#B6{top:280px;	left:460px;}
+		#B7{top:320px;	left:300px;}
+		#B8{top:350px;	left:180px;}
+		#B9{top:430px;	left:90px;}
+		#B10{top:410px;	left:260px;}
+		#B11{top:500px;	left:250px;}
+		#B12{top:650px;	left:140px;}
+		#B13{top:600px;	left:310px;}
+		#B14{top:520px;	left:390px;}
+		#B15{top:580px;	left:625px;}
+		#B16{top:700px;	left:550px;}	
+		#B17{top:560px;	left:900px;}
+		#B18{top:600px;	left:1000px;}
+		#B19{top:540px;	left:1170px;}
+		#B20{top:320px;	left:1050px;}		
+		#F1{
+			width:500px;
+			height:180px;
+			font-size:72px;
+			color:red;
+			background-color:lightblue;
+			position:absolute;
+			top:300px;
+			left:100px;
+			z-index:150;
+			visibility:hidden;
+		}
+	</style>
+
+<body> 
+		
+		<div id="D1" onClick="dice01()">
+		<img id="DM1" src="dice.gif" width="150" height="150">
+		</div>
+		<div id="ATM">
+		<img id="ATM1" src="act01.png" width="120" height="120">
+		</div>
+		<div id="run">
+			回合數:1
+		</div>
+		<div id="reset" onClick="reset()">
+			重置
+		</div>
+		<div id="MAIN" onClick="main()">
+			返回主畫面
+		</div>
+		<div id="P1">
+			玩家1基金:100000
+		</div>
+		<div id="O1">
+			玩家1目前狀況
+		</div>
+		<div id="P2">
+			玩家2基金:100000
+		</div>
+		<div id="O2">
+			玩家2目前狀況
+		</div>
+		<div id="MAP">
+		<img src="Map03.jpg">
+		</div>
+		<div id="A1">
+		<img src="act01.png" width="50" height="50">
+		</div>
+		<div id="A2">
+		<img src="act02.png" width="50" height="50">
+		</div>
+		<div id="F1">
+		<img id="FM1" src="act01.png" width="180" height="150">
+		是贏家!!
+		</div>
+		
+		<div id="B0" class="BLK">起</div>
+		<div id="B1" class="BLK">1</div>
+		<div id="B2" class="BLK">2</div>
+		<div id="B3" class="BLK">3</div>
+		<div id="B4" class="BLK">4</div>
+		<div id="B5" class="BLK">5</div>
+		<div id="B6" class="BLK">6</div>
+		<div id="B7" class="BLK">7</div>
+		<div id="B8" class="BLK">8</div>
+		<div id="B9" class="BLK">9</div>
+		<div id="B10" class="BLK">10</div>
+		<div id="B11" class="BLK">11</div>
+		<div id="B12" class="BLK">12</div>
+		<div id="B13" class="BLK">13</div>
+		<div id="B14" class="BLK">14</div>
+		<div id="B15" class="BLK">15</div>
+		<div id="B16" class="BLK">16</div>
+		<div id="B17" class="BLK">17</div>
+		<div id="B18" class="BLK">18</div>
+		<div id="B19" class="BLK">19</div>
+		<div id="B20" class="BLK">20</div>
+				
+</body>
+		<script type="text/javascript">
+		var AT = 1;
+		var ATS = [0, 0, 0];	//玩家起始位置
+		var cando = true;		//是否可以按下
+		var RUN = 0;			//回合數
+		var NO1 = 100000;
+		var NO2 = 100000;
+		var run = document.getElementById('run');	//回合數
+		var P1 = document.getElementById('P1');		//玩家1積分
+		var P2 = document.getElementById('P2');		//玩家2積分
+		var O1 = document.getElementById('O1');		//玩家1購物車
+		var O2 = document.getElementById('O2');		//玩家2購物車
+			function reset(){
+				window.location.href='Monopoly.html';
+			}
+			function main(){
+				window.location.href='Main.html';
+			}
+			function dice01(){
+				if (!cando) return;
+				cando = false;
+				var stp = Math.round(Math.random()*6);	//骰子點數
+				if (stp==0) stp = 1;
+				var DM1 = document.getElementById('DM1');
+				DM1.src = "dice"+stp+".png";
+				if(AT==1){
+					RUN++;
+				}
+				test2(stp);
+				//setInterval(dice02,3000);
+			}
+			function dice02(){
+				var DM1 = document.getElementById('DM1');
+				DM1.src = "dice.gif";
+			}
+			function test2(obj1){
+				var AN = document.getElementById('A'+AT);
+				var osty = window.getComputedStyle(AN); 	//玩家A位置
+				var posc = osty.getPropertyValue('left');	//玩家A目前位置
+				var posc = posc.substr(0,posc.length-2);
+				//var pos1 = obj1*60+parseInt(posc);			//準備要移過去的位置
+				//alert(pos1);
+				
+				ATS[AT] = ATS[AT] + obj1;		//下一個要到的位置
+				if (ATS[AT]>20) ATS[AT] = 20;
+				if (ATS[AT]>21 && AT==1){		//玩家1完成遊戲時加5000元
+	    			ATS[AT] =  ATS[AT] - 22;
+					NO1=NO1+5000;
+		    	}else if (ATS[AT]>21 && AT==2){	//玩家2完成遊戲時加5000元
+					ATS[AT] =  ATS[AT] - 22;
+					NO2=NO2+5000;
+				}				
+				var BN = document.getElementById('B'+ATS[AT]);	//取出top & left
+				var bsty = window.getComputedStyle(BN);		//玩家B位置
+				var posx = bsty.getPropertyValue('left');	//玩家B目前位置
+				var posy = bsty.getPropertyValue('top');
+				
+				
+				AN.style.transition = '3s';
+				//AN.style.left = pos1+'px';
+				AN.style.left = posx;	//改變玩家位置
+				AN.style.top = posy;	//改變玩家位置
+				AN.addEventListener("transitionend", test3);
+				
+			}
+			var test3_flag = 0;
+			function test3(){
+				test3_flag++;
+				if (test3_flag==2){
+					test3_flag = 0;
+					return;
+				}
+				if (ATS[AT]>=20 && AT==1){
+					NO1 = NO1 + 15000;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					Swal.fire("恭喜玩家1過關,獎金" + NO1 + "元");
+					var FM1 = document.getElementById('FM1');
+					FM1.src = "act0"+AT+".png";
+					var F1 = document.getElementById('F1');
+					F1.style.visibility = 'visible';					
+					ATS[0]=0;
+					ATS[1]=0;
+				} else if (ATS[AT]>=20 && AT==2){
+					NO2 = NO2 + 15000;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					Swal.fire("恭喜玩家2過關,獎金" + NO2 + "元");
+					var FM1 = document.getElementById('FM1');
+					FM1.src = "act0"+AT+".png";
+					var F1 = document.getElementById('F1');
+					F1.style.visibility = 'visible';					
+					ATS[0]=0;
+					ATS[1]=0;
+				} else if (ATS[AT]==4 && AT==1){
+					if(window.confirm('遇到障礙物,須改道') == true){
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "改道退1步";
+					test2(-1);
+						test4();
+					}
+					test4();
+				} else if (ATS[AT]==4 && AT==2){
+					if(window.confirm('遇到障礙物,須改道') == true){
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "改道退1步";
+					test2(-1);
+						test4();
+					}
+					test4();
+				} else if (ATS[AT]==5 && AT==1){
+					Swal.fire("荒山野嶺,請求支援");
+					test2(+2);
+					NO1 = NO1 - 2500;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "往前2步-2500";
+					//test4();
+				} else if (ATS[AT]==5 && AT==2){
+					Swal.fire("荒山野嶺,請求支援");
+					test2(+2);
+					NO2 = NO2 - 2500;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "往前2步-2500";
+					//test4();
+				} else if (ATS[AT]==8 && AT==1){
+					if(window.confirm('要參觀古蹟嗎?') == true){
+					NO1 = NO1 - 3000;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "門票-3000元";
+					Swal.fire("參觀古蹟門票費3000元");
+						//test4();
+					}
+					test4();
+				} else if (ATS[AT]==8 && AT==2){
+					if(window.confirm('要參觀古蹟嗎?') == true){
+					NO2 = NO2 - 3000;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "門票-3000元";
+					Swal.fire("參觀古蹟門票費3000元");
+						//test4();
+					}
+					test4();
+				} else if (ATS[AT]==10 && AT==1){
+					Swal.fire("泛舟往下");
+					NO1 = NO1 - 1500;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "泛舟費用-1500元";
+					test2(+1);
+					//test4();
+				} else if (ATS[AT]==10 && AT==2){
+					Swal.fire("泛舟往下");
+					NO2 = NO2 - 1500;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "泛舟費用-1500元";
+					test2(+1);
+					//test4();
+				} else if (ATS[AT]==12 && AT==1){
+					Swal.fire("領取振興券3000元");
+					NO1 = NO1 + 3000;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "振興券+3000元";					
+					test4();
+				} else if (ATS[AT]==12 && AT==2){
+					Swal.fire("領取振興券3000元");
+					NO2 = NO2 + 3000;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "振興券+3000元";
+					test4();
+				} else if (ATS[AT]==15 && AT==1){
+					Swal.fire("觀光導覽2000元");
+					NO1 = NO1 - 2000;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "導覽-2000元";					
+					test4();
+				} else if (ATS[AT]==15 && AT==2){
+					Swal.fire("觀光導覽2000元");
+					NO2 = NO2 - 2000;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "導覽-2000元";
+					test4();
+				} else if (ATS[AT]==16 && AT==1){
+					Swal.fire("遇到火山爆發,請遠避");
+					NO1 = NO1 - 500;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "遇到火山過路費-500元";
+					test2(-4);
+					//test4();
+				} else if (ATS[AT]==16 && AT==2){
+					//test4(-4);
+					Swal.fire("遇到火山爆發,請遠避");
+					NO2 = NO2 - 500;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "遇到火山過路費-500元";
+					test2(-4);
+					//test4();
+				} else if (ATS[AT]==18 && AT==1){
+					if(window.confirm('船隻接送') == true){
+					NO1 = NO1 - 5000;
+					P1.innerHTML = "玩家1基金:" + NO1;
+					O1.innerHTML = "搭船抵達目的地";
+					test2(+2);
+						test4();
+					}
+					test4();
+				} else if (ATS[AT]==18 && AT==2){
+					if(window.confirm('船隻接送') == true){
+					NO2 = NO2 - 5000;
+					P2.innerHTML = "玩家2基金:" + NO2;
+					O2.innerHTML = "搭船抵達目的地";
+					test2(+2);
+						test4();
+					}
+					test4();
+				} else {
+					test4();
+				}
+			}
+			function test4(){
+				run.innerHTML = "回合數:" + RUN;
+				if (AT==1)
+					AT=2;
+				else
+					AT=1;
+				var ATM1 = document.getElementById('ATM1');
+				ATM1.src = "act0"+AT+".png";
+				dice02();
+				cando = true;	//可以按下
+			}
+		</script>
+</html>
+		

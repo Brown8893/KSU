@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Poker Game</title>
+</head>
+	<script src="jquery-1.9.1.min.js"></script>
+	<style type="text/css">
+		.pcard{
+			width:150px;
+			height:200px;
+			border:solid blue thin;
+			float:left;
+			margin-left:10px;
+		}
+		.box{
+			width:70px;
+			height:100px;
+			position: absolute;
+			backface-visibility: hidden; 
+			transform: translateX(0);
+		}
+		.box.out{
+			transform: rotateY(-180deg) scale(1.0);
+			animation-name: flipouttoleft;
+			animation-duration: 175ms;
+		}
+		.box.in{
+			transform: rotateY(0deg) scale(1.0);
+			animation-name: flipouttoright;
+			animation-duration: 225ms;
+		}
+		@keyframes flipouttoleft{
+			from {transform: rotateY(0);}
+			to {transform: rotateY(-90deg) scale(1.0);}
+		}
+		@keyframes flipouttoright{
+			from {transform: rotateY(90deg) scale(1.0);}
+			to {transform: rotateY(0);}
+		}
+		#G00{
+			width:200px;
+			height:200px;
+			position: absolute;
+			font-size:50px;
+			top: 100px;
+			left: 850px;
+			visibility:hidden;
+		}
+		#MAIN{
+			font-size: 40px;
+			text-align: center;
+			width: 200px;
+			height: 50px;
+			border: green solid;
+			margin:5px 5px 5px 15px;
+			float: left;
+			cursor: pointer;
+		}
+	</style>
+
+<body> 
+		<input type="button" onclick="FUNC10()" value="ROT">
+		<input type="button" onclick="RESET()" value="RESET"><br><br>
+		<div id="A01" class="pcard" onclick="FUNC1('11','12')">
+		<div id="A11" class="box">
+		<img id="M11" width="140px" height="200px" src="Dola.png"></div>
+		<div id="A12" class="box out">
+		<img id="M12" width="140px" height="200px" src="a12.png"></div>
+		</div>
+		<div id="A11" class="pcard" onclick="FUNC1('21','22')">
+		<div id="A21" class="box">
+		<img id="M21" width="140px" height="200px" src="act01.png"></div>
+		<div id="A22" class="box out">
+		<img id="M22" width="140px" height="200px" src="a02.png"></div>
+		</div>
+		<div id="A21" class="pcard" onclick="FUNC1('31','32')">
+		<div id="A31" class="box">
+		<img id="M31" width="140px" height="200px" src="c01.gif"></div>
+		<div id="A32" class="box out">
+		<img id="M32" width="140px" height="200px" src="a08.png"></div>
+		</div>
+		<div id="A31" class="pcard" onclick="FUNC1('41','42')">
+		<div id="A41" class="box">
+		<img id="M41" width="140px" height="200px" src="c02.gif"></div>
+		<div id="A42" class="box out">
+		<img id="M42" width="140px" height="200px" src="a42.png"></div>
+		</div>
+		
+		<div class="pcard">
+			猜猜看<img id="M00" width="150px" height="180px" src="a02.png">
+		</div>	
+		<div id="G00">
+			<img id="G01" width="200px" height="200px" src="g01.png">
+		</div>	
+		<div id="MAIN" onClick="main()">
+			返回主畫面
+		</div>
+</body>
+	<script type="text/javascript">
+		function main(){
+			window.location.href='Main.html';
+		}
+		function FUNC1(obj1,obj2){
+			var eleF = $('#A'+obj1);	//前面
+			var eleB = $('#A'+obj2);	//背面
+			eleF.addClass("out").removeClass("in");
+			eleB.addClass("in").removeClass("out");
+			var eleF2 = $('#A'+obj1);	//前面
+			var eleB2 = $('#A'+obj2);	//背面
+			eleF2.addClass("out").removeClass("in");
+			eleB2.addClass("in").removeClass("out");
+			var eleF3 = $('#A'+obj1);	//前面
+			var eleB3 = $('#A'+obj2);	//背面
+			eleF3.addClass("out").removeClass("in");
+			eleB3.addClass("in").removeClass("out");
+			var eleF4 = $('#A'+obj1);	//前面
+			var eleB4 = $('#A'+obj2);	//背面
+			eleF4.addClass("out").removeClass("in");
+			eleB4.addClass("in").removeClass("out");
+			var imga = document.getElementById('M'+obj2);	//前四張
+			var imgs = document.getElementById('M00');		//猜猜看
+			var g00 = document.getElementById('G00');		//GIF
+			var g01 = document.getElementById('G01');		//GIF
+			if (imga.src===imgs.src){
+				g01.src = "g01.gif";
+			} else {
+				g01.src = "g02.gif";
+			}
+			g00.style.visibility = 'visible';
+			return false;
+		}
+		function FUNC10(){
+			var eleF = $('#A11');	//前面
+			var eleB = $('#A12');	//背面
+			eleF.addClass("in").removeClass("out");
+			eleB.addClass("out").removeClass("in");
+			var eleF2 = $('#A21');	//前面
+			var eleB2 = $('#A22');	//背面
+			eleF2.addClass("in").removeClass("out");
+			eleB2.addClass("out").removeClass("in");
+			var eleF3 = $('#A31');	//前面
+			var eleB3 = $('#A32');	//背面
+			eleF3.addClass("in").removeClass("out");
+			eleB3.addClass("out").removeClass("in");
+			var eleF4 = $('#A41');	//前面
+			var eleB4 = $('#A42');	//背面
+			eleF4.addClass("in").removeClass("out");
+			eleB4.addClass("out").removeClass("in");
+			return false;
+		}
+		function RESET(){
+			window.location.href='Poker.html';
+		}
+		var a1 = Math.floor(Math.random()*6+1);	
+		document.getElementById('M12').src = 'a'+ a1 + '2.png';	
+		var a2 = Math.floor(Math.random()*6+1);	
+		document.getElementById('M22').src = 'a'+ a2 + '2.png';	
+		var a3 = Math.floor(Math.random()*6+1);
+		document.getElementById('M32').src = 'a'+ a3 + '2.png';
+		var a4 = Math.floor(Math.random()*6+1);
+		document.getElementById('M42').src = 'a'+ a4 + '2.png';
+		var bb = Math.floor(Math.random()*6+1);
+		document.getElementById('M00').src = 'a'+ bb + '2.png';
+	</script>
+</html>
