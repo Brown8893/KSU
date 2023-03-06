@@ -18,3 +18,5 @@
 ![image](https://user-images.githubusercontent.com/33440699/223170522-f404c2b3-500d-4edb-abbe-2fc222e0d876.png)
 * 建立一個資料庫 ```create database ie```
 ![image](https://user-images.githubusercontent.com/33440699/223171183-f4e5d02a-5dee-4e50-b886-a29d4b5e8629.png)
+* 建立使用者給資料庫權限 ```CREATE USER ‘brown’@‘%’ IDENTIFIED BY ‘ksu’;```  ```GRANT ALL PRIVILEGES ON ie.* TO brown@localhost;```
+![image](https://user-images.githubusercontent.com/33440699/223172101-09cfe34a-cd34-4d25-bc7a-5eb1739e4d0a.png)
