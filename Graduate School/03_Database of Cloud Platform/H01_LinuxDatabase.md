@@ -16,3 +16,5 @@
 ![image](https://user-images.githubusercontent.com/33440699/223170169-e98efb1c-84f6-492d-a801-6fed18252a1c.png)
 * 登入 MariaDB 資料庫並查看 ```mysql -u root -h localhost -p```
 ![image](https://user-images.githubusercontent.com/33440699/223170522-f404c2b3-500d-4edb-abbe-2fc222e0d876.png)
+* 建立一個資料庫 ```create database ie```
+![image](https://user-images.githubusercontent.com/33440699/223171183-f4e5d02a-5dee-4e50-b886-a29d4b5e8629.png)
