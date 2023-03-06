@@ -9,3 +9,5 @@
 * 啟用 MariaDB 的 service ```sudo systemctl enable mariadb```
 ![image](https://user-images.githubusercontent.com/33440699/223060865-1ffe087d-9b4f-425a-b74b-d208cd31f241.png)
 * 立即啟動 MariaDB 的 service ```sudo systemctl start mariadb```
+![image](https://user-images.githubusercontent.com/33440699/223061302-77774256-66f3-486c-98fb-723fe98be64e.png)
+* 檢查 MariaDB 伺服器是否有正常啟動 ```systemctl status mariadb```
