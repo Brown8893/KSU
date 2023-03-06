@@ -1,2 +1,2 @@
 # LinuxDatabase
-1. Install Linux CentOS7
+### 1. Install Linux CentOS7
