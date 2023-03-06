@@ -10,3 +10,5 @@
 * 每次開機自動開啟 MariaDB 伺服器 ```sudo systemctl enable mariadb```
 * 檢視 MariaDB 啟動狀態 ```sudo systemctl status mariadb```
 ![image](https://user-images.githubusercontent.com/33440699/223168868-98752f04-e249-4b27-aa8d-1b5aadfe5141.png)
+* 加強 MariaDB 安全性 ```sudo mysql_secure_installation```
+![image](https://user-images.githubusercontent.com/33440699/223169930-43edd1e1-ef58-4ce3-8ab4-982357aa5cf8.png)
