@@ -12,6 +12,7 @@
 ![image](https://user-images.githubusercontent.com/33440699/223168868-98752f04-e249-4b27-aa8d-1b5aadfe5141.png)
 * 加強 MariaDB 安全性 ```sudo mysql_secure_installation```
 ![image](https://user-images.githubusercontent.com/33440699/223169930-43edd1e1-ef58-4ce3-8ab4-982357aa5cf8.png)
+### 3. Start Into MariaDB
 * 檢視 MariaDB 版本 ```mysql -V```
 ![image](https://user-images.githubusercontent.com/33440699/223170169-e98efb1c-84f6-492d-a801-6fed18252a1c.png)
 * 登入 MariaDB 資料庫並查看 ```mysql -u root -h localhost -p```
