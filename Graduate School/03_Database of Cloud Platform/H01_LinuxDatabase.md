@@ -6,3 +6,4 @@
 ![image](https://user-images.githubusercontent.com/33440699/223045686-535e49da-2354-467c-bd1f-3087fbed3394.png)
 * 安裝 MariaDB 伺服器 ```sudo yum install mariadb-server```
 ![image](https://user-images.githubusercontent.com/33440699/223049139-65ce267c-8a6e-43be-b86e-6f567a16dedb.png)
+* 啟用 MariaDB 的 service ```sudo systemctl enable mariadb```
