@@ -11,3 +11,5 @@
 * 立即啟動 MariaDB 的 service ```sudo systemctl start mariadb```
 ![image](https://user-images.githubusercontent.com/33440699/223061302-77774256-66f3-486c-98fb-723fe98be64e.png)
 * 檢查 MariaDB 伺服器是否有正常啟動 ```systemctl status mariadb```
+![image](https://user-images.githubusercontent.com/33440699/223061572-8c0ef73f-eaec-49ff-9de3-2adbf626dd49.png)
+* 安全性設定工具 ```sudo mysql_secure_installation```
