@@ -6,20 +6,4 @@
 ![image](https://user-images.githubusercontent.com/33440699/223045686-535e49da-2354-467c-bd1f-3087fbed3394.png)
 * 安裝 MariaDB 伺服器 ```sudo yum install mariadb-server```
 ![image](https://user-images.githubusercontent.com/33440699/223168377-5df69c3f-17a3-465c-830c-2fa84243bb03.png)
-* 啟用 MariaDB 的 service ```sudo systemctl enable mariadb```
-![image](https://user-images.githubusercontent.com/33440699/223060865-1ffe087d-9b4f-425a-b74b-d208cd31f241.png)
-* 立即啟動 MariaDB 的 service ```sudo systemctl start mariadb```
-![image](https://user-images.githubusercontent.com/33440699/223061302-77774256-66f3-486c-98fb-723fe98be64e.png)
-* 檢查 MariaDB 伺服器是否有正常啟動 ```systemctl status mariadb```
-![image](https://user-images.githubusercontent.com/33440699/223061572-8c0ef73f-eaec-49ff-9de3-2adbf626dd49.png)
-* 安全性設定工具 ```sudo mysql_secure_installation```  ```mysql -u root -p```
-![image](https://user-images.githubusercontent.com/33440699/223062557-13ff1321-53c1-47a0-ad58-d2a8a250292a.png)
-### 3. Create DB with MariaDB
-* 進入資料表 ```use ksuiedb;```
-* 新建資料表 ```create table brown(id int, name varchar(40), school varchar(40));```
-* 查看資料表 ```DESC brown;```
-![image](https://user-images.githubusercontent.com/33440699/223066660-fe6e0f7c-0fec-4331-8dc0-4f8316518647.png)
-### 4. Insert data in DB with MariaDB
-* 新增資料 ```INSERT INTO brown (id, name, school) VALUES (1, 'Steven', 'KSU');```
-![image](https://user-images.githubusercontent.com/33440699/223068328-a21ca521-a5aa-4c29-827a-5020f468b9d8.png)
-![image](https://user-images.githubusercontent.com/33440699/223071312-a3ab3355-8be5-4804-a7b0-e35ad44d0f43.png)
+![image](https://user-images.githubusercontent.com/33440699/223168868-98752f04-e249-4b27-aa8d-1b5aadfe5141.png)
