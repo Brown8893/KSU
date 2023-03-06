@@ -14,3 +14,5 @@
 ![image](https://user-images.githubusercontent.com/33440699/223169930-43edd1e1-ef58-4ce3-8ab4-982357aa5cf8.png)
 * 檢視 MariaDB 版本 ```mysql -V```
 ![image](https://user-images.githubusercontent.com/33440699/223170169-e98efb1c-84f6-492d-a801-6fed18252a1c.png)
+* 登入 MariaDB 資料庫並查看 ```mysql -u root -h localhost -p```
+![image](https://user-images.githubusercontent.com/33440699/223170522-f404c2b3-500d-4edb-abbe-2fc222e0d876.png)
