@@ -22,5 +22,7 @@
 ![image](https://user-images.githubusercontent.com/33440699/223172101-09cfe34a-cd34-4d25-bc7a-5eb1739e4d0a.png)
 * 進行遠端連線設定 ```sudo vi /etc/my.cnf.d/server.cnf```
 ![image](https://user-images.githubusercontent.com/33440699/223172967-ce24ee5b-bbd5-4678-8972-2da5a32a9303.png)
+* 設port為(3306)並重新啟動 ```sudo firewall-cmd --zone=public --add-port=3306/tcp --permanent```
 ![image](https://user-images.githubusercontent.com/33440699/223173451-693735f1-ebfc-4ac2-8bfe-f78050cd6d6e.png)
+* client端連線 ```mysql -u root -h 192.168.0.2 -p```
 ![image](https://user-images.githubusercontent.com/33440699/223180208-3d2f5bd8-c5ad-4cc4-a3af-1207b47cccb1.png)
