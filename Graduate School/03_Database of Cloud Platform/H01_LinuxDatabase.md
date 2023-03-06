@@ -1,2 +1,2 @@
 # LinuxDatabase
->* Install Linux
+* Install Linux
