@@ -22,3 +22,4 @@
 ### 4. Insert data in DB with MariaDB
 * 新增資料 ```INSERT INTO brown (id, name, school) VALUES (1, 'Steven', 'KSU');```
 ![image](https://user-images.githubusercontent.com/33440699/223068328-a21ca521-a5aa-4c29-827a-5020f468b9d8.png)
+![image](https://user-images.githubusercontent.com/33440699/223071312-a3ab3355-8be5-4804-a7b0-e35ad44d0f43.png)
