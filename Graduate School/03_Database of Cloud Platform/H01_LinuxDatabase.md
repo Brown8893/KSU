@@ -1,7 +1,7 @@
 # LinuxDatabase
 ### 1. Download and Install Linux CentOS7
 ![image](https://user-images.githubusercontent.com/33440699/223036052-052e97ec-2da8-443f-98f3-3652ed7d527d.png)
-### 2. start Install MariaDB
+### 2. Start Install MariaDB
 * 先更新 CentOS Linux 系統上的套件 ```sudo yum update```
 ![image](https://user-images.githubusercontent.com/33440699/223045686-535e49da-2354-467c-bd1f-3087fbed3394.png)
 * 安裝 MariaDB 伺服器 ```sudo yum install mariadb-server```
@@ -14,3 +14,5 @@
 ![image](https://user-images.githubusercontent.com/33440699/223061572-8c0ef73f-eaec-49ff-9de3-2adbf626dd49.png)
 * 安全性設定工具 ```sudo mysql_secure_installation```  ```mysql -u root -p```
 ![image](https://user-images.githubusercontent.com/33440699/223062557-13ff1321-53c1-47a0-ad58-d2a8a250292a.png)
+### 3. Create DB with MariaDB
+* 進入資料表 ```use ksuiedb;```
