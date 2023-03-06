@@ -19,3 +19,6 @@
 * 新建資料表 ```create table brown(id int, name varchar(40), school varchar(40));```
 * 查看資料表 ```DESC brown;```
 ![image](https://user-images.githubusercontent.com/33440699/223066660-fe6e0f7c-0fec-4331-8dc0-4f8316518647.png)
+### 4. Insert data in DB with MariaDB
+* 新增資料 ```INSERT INTO brown (id, name, school) VALUES (1, 'Steven', 'KSU');```
+![image](https://user-images.githubusercontent.com/33440699/223068328-a21ca521-a5aa-4c29-827a-5020f468b9d8.png)
