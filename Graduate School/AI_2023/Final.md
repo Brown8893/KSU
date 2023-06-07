@@ -1,0 +1,122 @@
+# 期末考報告
+- 生成型深度學習 Generative Deep Learning 測試報告
+- 1.Generative Deep Learning 體驗 ==> CHATGPT|....測試心得
+- 2.Generative Deep Learning 技術1: 從AE到VAE
+  - 【Tensorflow Tutorials官方教學範例】[自編碼器簡介](https://tensorflow.google.cn/tutorials/generative/autoencoder?hl=zh-cn)
+  - 三主題:自編碼器 + 圖像降噪Image denoising + 異常檢測
+  - [龍大大教學影片](https://youtu.be/ZIk_KXJhnAs)
+- 3.Generative Deep Learning 技術2: GAN
+  - 【Tensorflow Tutorials官方教學範例】 [DCGAN深度卷積生成對抗網路](https://tensorflow.google.cn/tutorials/generative/dcgan?hl=zh-cn)
+  - [龍大大教學影片 本周末錄影]
+# 報告內容須包含三大部分
+- 1.Generative Deep Learning 體驗
+  - 平台
+    - [There's An AI For That - The Biggest AI Aggregator](https://theresanaiforthat.com)
+      - The largest database of 4702 AIs available for over 1324 tasks.
+    - [The Top Types of AI-Generated Content in Marketing [New Data, Examples & Tips]]()
+    - [TOP 18 ARTIFICIAL INTELLIGENCE PLATFORMS](https://www.predictiveanalyticstoday.com/artificial-intelligence-platforms/)
+  - AI Text Generation == > 論文產生器 | 武俠...小說產生器 | 滲透測試報告產生器
+    - chatgpt 至少三種測試
+    - [The top AI text generators in 2023](https://zapier.com/blog/ai-text-generator/) 
+  - AI Image/Art/painting Generation
+    - [gencraft](https://gencraft.com/generate)測試
+    - [DALL-E 2](https://openai.com/product/dall-e-2) 測試
+    - [Midjourney](https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F) 測試
+    - text-to-image model:Stable Diffusion. 
+      - [Stable Diffusion Online](https://stablediffusionweb.com/)
+  - AI Video Generation Platform
+    - [9 “Best” AI Video Generators (May 2023)](https://www.unite.ai/best-ai-video-generators/)
+    - [D-ID](https://www.d-id.com/) 測試
+      - Create and interact with talking avatars at the touch of a button, to increase engagement and reduce costs. 
+    - Synthesia
+  - AI-Powered Learning Platform
+    - [Synthesia:A fun way to learn how to play the piano.](https://synthesiagame.com/)
+  - Untitle
+    - [The new era of storytelling.Tome is the AI-powered format for your work & ideas.]() 
+  - TOPICS
+    - 3D公仔產生器?? Text-to-3D 
+    - 多國版本教學影片產生器?? ==> Google
+- 2.Generative Deep Learning 技術1: 從AE到VAE
+  - 經典論文
+    - [Auto-Encoding Variational Bayes(2013)Diederik P Kingma, Max Welling](https://arxiv.org/abs/1312.6114)
+    - [Stochastic Backpropagation and Approximate Inference in Deep Generative Models(2014)](https://arxiv.org/abs/1401.4082)
+    - [Autoencoder@arxiv.org](https://arxiv.org/search/?query=Autoencoder&searchtype=all&source=header)
+  - Review
+  - 介紹文章
+    - [AutoEncoder (一)-認識與理解](https://medium.com/ml-note/autoencoder-%E4%B8%80-%E8%AA%8D%E8%AD%98%E8%88%87%E7%90%86%E8%A7%A3-725854ab25e8) 
+    - [Towards Tensorflow 2.0 系列](https://ithelp.ithome.com.tw/users/20119971/ironman/2254)
+      - [[Day-22] Unsupervised Learning - AutoEnocder介紹](https://ithelp.ithome.com.tw/articles/10225782) 
+      - [[Day 23] AutoEnoder 實作](https://ithelp.ithome.com.tw/articles/10226039)
+      - [[Day-24] VAE(Variational AutoEncoder) 實作](https://ithelp.ithome.com.tw/articles/10226549)
+  - AutoEncoder（AE）
+    - 【Tensorflow Tutorials官方教學範例】[自編碼器簡介](https://tensorflow.google.cn/tutorials/generative/autoencoder?hl=zh-cn)
+      - 三主題:自編碼器 + 圖像降噪Image denoising + 異常檢測
+      - [龍大大教學影片](https://youtu.be/ZIk_KXJhnAs)
+  - 變分自編碼器（Variational Autoencoder，VAE）
+    - 【Tensorflow Tutorials官方教學範例】[卷積變分自編碼器](https://tensorflow.google.cn/tutorials/generative/cvae?hl=zh-cn)
+    - 介紹文章
+      - [Understanding Variational Autoencoders (VAEs)2019](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
+      - [Variational autoencoder](https://en.wikipedia.org/wiki/Variational_autoencoder)
+      - [Variational Autoencoders](https://www.youtube.com/watch?v=9zKuYvjFFS8)
+  - Denoising AE（DAE） 
+    - 【Tensorflow Tutorials官方教學範例】[自編碼器簡介](https://tensorflow.google.cn/tutorials/generative/autoencoder?hl=zh-cn) 
+  - Sparse AE（SAE） 
+    - 介紹文章
+      - [What happens in Sparse Autoencoder:How L1 regularization affects Autoencoder ](https://medium.com/@syoya/what-happens-in-sparse-autencoder-b9a5a69da5c6)
+      - [Tensorflow Day17 Sparse Autoencoder](https://ithelp.ithome.com.tw/articles/10188255)
+      - [Building Autoencoders in Keras](https://blog.keras.io/building-autoencoders-in-keras.html)
+  - Automatic colorization autoencoder 
+- 3.Generative Deep Learning 技術2: GAN
+  - 介紹文章
+    - [[Day-25] 生成對抗網路 (GAN) 介紹](https://ithelp.ithome.com.tw/articles/10226866)
+    - [[Day-26] 生成對抗網路 (GAN) 實作 Part I](https://ithelp.ithome.com.tw/articles/10227196)
+    - [[Day-27] 生成對抗網路 (GAN) 實作 Part II](https://ithelp.ithome.com.tw/articles/10227377) 
+  - DCGAN 
+    - 【Tensorflow Tutorials官方教學範例】 [DCGAN深度卷積生成對抗網路](https://tensorflow.google.cn/tutorials/generative/dcgan?hl=zh-cn)
+      - 深度卷積生成對抗網路(DCGAN) 生成手寫數位的圖像
+ 
+- 研究主題
+  - Fake News Generation and Detection
+  - Deepfakes image Generation and Detection  
+    - [Deep Learning for Deepfakes Creation and Detection: A Survey(2019)](https://arxiv.org/abs/1909.11573)
+    - [Exploring Deepfakes(2023)]()
+    - [Exposing DeepFake Videos By Detecting Face Warping Artifacts]()
+    - [FSGAN: Subject Agnostic Face Swapping and Reenactment(2019)](https://arxiv.org/abs/1908.05932)
+
+# 參考資料:Tensorflow 與 `生成式深度學習`
+- 教科書[Keras 大神歸位](https://www.tenlong.com.tw/products/9789863127017?list_name=srh) 
+  - 第12章：生成式深度學習(Generative Deep Learning)
+    - 12-1 使用LSTM來生成文字資料
+    - 12-2 DeepDream
+    - 12-3 神經風格轉換
+    - 👍🏻12-4 [使用變分自編碼器(Variational AutoEncoder)生成影像](https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter12_part04_variational-autoencoders.ipynb)
+    - 👍🏻12-5 [對抗式生成網路(GAN)](https://github.com/fchollet/deep-learning-with-python-notebooks/blob/master/chapter12_part05_gans.ipynb)
+  - 範例程式: [到官方網址下載](https://www.manning.com/books/deep-learning-with-python-second-edition?a_aid=keras&a_bid=76564dff) [GITHUB](https://github.com/fchollet/deep-learning-with-python-notebooks)
+  - 深度學習全面進化！用 Python 實作CNN、RNN、GRU、LSTM、GAN、VAE、Transformer
+  - François Chollet 著 黃逸華、林采薇 譯 黃逸華 審、施威銘研究室 監修
+- [生成對抗網路最精解](https://www.tenlong.com.tw/products/9789860776218?list_name=srh)
+  - 生成對抗網路最精解：用 TensorFlow 實作最棒的 GAN 應用 廖茂文、潘志宏 著  深智數位(2021)
+- [Hands-On Image Generation with TensorFlow(2020)](https://www.packtpub.com/product/hands-on-image-generation-with-tensorflow/9781838826789)  [GITHUB](https://github.com/PacktPublishing/Hands-On-Image-Generation-with-TensorFlow-2.0)
+  - Chapter 2: Variational Autoencoder
+  - Chapter 3: Generative Adversarial Network
+  - Chapter 9: Video Synthesis
+- [Advanced Deep Learning with TensorFlow 2 and Keras - Second Edition]()  
+
+
+# 參考資料
+- 台大 HUNG-YI LEE (李宏毅)教授課程 [2023年課程](https://speech.ee.ntu.edu.tw/~hylee/ml/2023-spring.php)
+
+## 範例學習:TensorFlow tutorials相關實作主題
+  - Text 產生
+  - Audio 產生
+    - [Generate music with an RNN](https://tensorflow.google.cn/tutorials/audio/music_generation)
+  - Image 產生 
+    - [Neural style transfer](https://tensorflow.google.cn/tutorials/generative/style_transfer)
+    - [DeepDream](https://tensorflow.google.cn/tutorials/generative/deepdream)
+    - [DCGAN:Deep Convolutional Generative Adversarial Network](https://www.tensorflow.org/tutorials/generative/dcgan)
+    - [pix2pix: Image-to-image translation with a conditional GAN](https://tensorflow.google.cn/tutorials/generative/pix2pix)
+    - [CycleGAN](https://tensorflow.google.cn/tutorials/generative/cyclegan)
+    - 攻擊人工智慧系統[Adversarial example using FGSM](https://tensorflow.google.cn/tutorials/generative/adversarial_fgsm)
+    - [Intro to Autoencoders](https://tensorflow.google.cn/tutorials/generative/autoencoder)
+    - [Convolutional Variational Autoencoder](https://tensorflow.google.cn/tutorials/generative/cvae)
+
