@@ -14,9 +14,8 @@ unsigned long previousMillis = 0;        // will store last temp was read
 const long interval = 2000;              // interval at which to read sensor
 
 // v1-
-float digitalValue, v1, v2, v3;
-int vol1, amp1;
-float vol2, amp2, vol3, power, sun1, sun2, sun3;
+float digitalValue1, digitalValue2, digitalValue3, v1, v2, v3;
+float sun1, sun2, sun3;
 char state = 1;
 SoftwareSerial esp8266(rxpin, txpin); // RX, TX
 
@@ -34,7 +33,7 @@ void setup()
   //lcd.setCursor(0, 0);lcd.print("Wifi");
   //lcd.setCursor(0, 1);lcd.print("Connecting...");
   //sendDebug("AT+RST");
-  delay(5000);
+  delay(1000);
   //sendDebug("AT");
   //Loading("sent AT");
 }
@@ -55,31 +54,28 @@ void loop(void)
   lcd.home();   //LCD歸零，清除所有內容
   lcd.clear();  //LCD歸零，清除所有內容
   lcd.setCursor(0, 0); // (colum, row)
-  lcd.print( float(vol3), 1);lcd.print("v ");lcd.print( float(amp2), 1);lcd.print("c ");lcd.print( float(power), 1);lcd.print("w");
-  if ( v1 < 0.80 ){
-    lcd.setCursor(0, 1); // (colum, row)
-    lcd.print( float(v1), 3);lcd.print("v ");lcd.print("0");lcd.print("Lux");    
-  }else{
-    lcd.setCursor(0, 1); // (colum, row)
-    lcd.print( float(v1), 3);lcd.print("v ");lcd.print( float(sun1), 1);lcd.print("Lux");
-  }
-  
-  //Serial.println(vol1);
-  //Serial.println(vol2); 
-  //Serial.println(String(vol3,3));
-  //Serial.println(vol1, 3);
-  //Serial.println(amp2, 3);
-  Serial.println(v1, 3);
-  Serial.println(sun1, 3);
-  Serial.println(v2, 3);
-  Serial.println(sun2, 3);
-  Serial.println(v3, 3);
-  Serial.println(sun3, 3);
+  lcd.print( float(v1), 3);lcd.print("v ");lcd.print( float(v2), 3);lcd.print("v");
+  lcd.setCursor(0, 1); // (colum, row)
+  lcd.print( float(v3), 3);lcd.print("v");
+
+  //if ( v1 < 0.80 ){
+    //lcd.setCursor(0, 1); // (colum, row)
+    //lcd.print( float(v1), 3);lcd.print("v ");lcd.print("0");lcd.print("Lux");    
+  //}else{
+    //lcd.setCursor(0, 1); // (colum, row)
+    //lcd.print( float(v1), 3);lcd.print("v ");lcd.print( float(sun1), 1);lcd.print("Lux");
+  //}
+  Serial.print("v1 : ");  Serial.println(v1, 3);
+  Serial.print("sun1 : ");  Serial.println(sun1, 3);
+  Serial.print("v2 : ");  Serial.println(v2, 3);
+  Serial.print("sun2 : ");  Serial.println(sun2, 3);
+  Serial.print("v3 : ");  Serial.println(v3, 3);
+  Serial.print("sun3 : ");  Serial.println(sun3, 3);
   //Serial.println(digitalValue, 3);
   //Serial.println((digitalValue * 5.00)/1024.0);
   //digitalValuedigitalValue
   //Serial.println(amp1);
-  delay(5000);
+  delay(1000);
 }
 
 
@@ -87,31 +83,31 @@ void loop(void)
 
 void sendV1()
 {
-  digitalValue = analogRead(A0);// read the value from the analog channel
-  v1 = (digitalValue * 5.00)/1024.00;
+  digitalValue1 = analogRead(A8);// read the value from the analog channel
+  v1 = (digitalValue1 * 5.00)/1024.00;
 }
 void sendsun1()
 {
-  v1 = (digitalValue * 5.00)/1024.00;
+  v1 = (digitalValue1 * 5.00)/1024.00;
   sun1 = 125000.00*(125.00*(((v1/200.00*1000.00)-4.00)/1000.00));
 }
 void sendV2()
 {
-  digitalValue = analogRead(A1);// read the value from the analog channel
-  v2 = (digitalValue * 5.00)/1024.00;
+  digitalValue2 = analogRead(A9);// read the value from the analog channel
+  v2 = (digitalValue2 * 5.00)/1024.00;
 }
 void sendsun2()
 {
-  v2 = (digitalValue * 5.00)/1024.00;
+  v2 = (digitalValue2 * 5.00)/1024.00;
   sun2 = 125000.00*(125.00*(((v2/200.00*1000.00)-4.00)/1000.00));
 }
 void sendV3()
 {
-  digitalValue = analogRead(A2);// read the value from the analog channel
-  v3 = (digitalValue * 5.00)/1024.00;
+  digitalValue3 = analogRead(A10);  // read the value from the analog channel
+  v3 = (digitalValue3 * 5.00)/1024.00;
 }
 void sendsun3()
 {
-  v3 = (digitalValue * 5.00)/1024.00;
+  v3 = (digitalValue3 * 5.00)/1024.00;
   sun3 = 125000.00*(125.00*(((v2/200.00*1000.00)-4.00)/1000.00));
 }
