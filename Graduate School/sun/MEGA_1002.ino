@@ -24,13 +24,13 @@ void setup() {
 }
 
 void loop() {
-  digitalValue1 = analogRead(A0);// read the value from the analog channel
+  digitalValue1 = analogRead(A8);// read the value from the analog channel
   v1 = (digitalValue1 * 5.00)/1024.00;
   sun1 = 125000.00*(125.00*(((v1/200.00*1000.00)-4.00)/1000.00));
-  digitalValue2 = analogRead(A1);// read the value from the analog channel
+  digitalValue2 = analogRead(A9);// read the value from the analog channel
   v2 = (digitalValue2 * 5.00)/1024.00;
   sun2 = 125000.00*(125.00*(((v2/200.00*1000.00)-4.00)/1000.00));
-  digitalValue3 = analogRead(A2);  // read the value from the analog channel
+  digitalValue3 = analogRead(A10);  // read the value from the analog channel
   v3 = (digitalValue3 * 5.00)/1024.00;
   sun3 = 125000.00*(125.00*(((v2/200.00*1000.00)-4.00)/1000.00));
 
@@ -38,4 +38,9 @@ void loop() {
   Serial3.println("Vo1="+String(v1,3)+"&Lux1="+String(sun1,3)+"&Vo2="+String(v2,3)+"&Lux2="+String(sun2,3)+"&Vo3="+String(v3,3)+"&Lux3="+String(sun3,3)+" \n");
   Serial.println("Vo1="+String(v1,3)+"&Lux1="+String(sun1,3)+"&Vo2="+String(v2,3)+"&Lux2="+String(sun2,3)+"&Vo3="+String(v3,3)+"&Lux3="+String(sun3,3)+" \n");
   delay(1000);
+
+  lcd.setCursor(0, 0); // (colum, row)
+  lcd.print("1=");lcd.print( float(v1), 2); lcd.print("v "); lcd.print("2=");lcd.print( float(v2), 2); lcd.print("v");
+  lcd.setCursor(0, 1); // (colum, row)
+  lcd.print("3=");lcd.print( float(v3), 2); lcd.print("v ");
 }
